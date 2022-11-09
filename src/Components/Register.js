@@ -7,49 +7,52 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../UserContext/UserContext';
 
 const Register = () => {
-    const {createUser, googleLogin,gitLogin}=useContext(AuthContext)
-    const CreateUser=event=>{
+    const { createUser, googleLogin, gitLogin, update } = useContext(AuthContext)
+    const CreateUser = event => {
         event.preventDefault();
-        const form=event.target;
-       
-        const email=form.email.value;
-    
-        const password=form.password.value;
+        const form = event.target;
+
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const displayName = form.name.value;
+        const password = form.password.value;
 
         createUser(email, password)
-        .then(result=> {
-      toast.success('success')
-        })
-        .catch(error=>{
-            toast.error(`${error.message}`)
-            
-        })
+            .then(result => {
+                update(displayName, photoURL)
+                toast.success('success')
+                form.reset();
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
 
     }
 
 
-    const googleLogInHandle=()=>{
+    const googleLogInHandle = () => {
         googleLogin()
-        .then(result=> {
-            toast.success('success')
-              })
-              .catch(error=>{
-                  toast.error(`${error.message}`)
-                  
-              })
+            .then(result => {
+                toast.success('success')
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
 
     }
 
-    const gitLoginHandle=()=>{
+    const gitLoginHandle = () => {
         gitLogin()
 
-        .then(result=> {
-            toast.success('success')
-              })
-              .catch(error=>{
-                  toast.error(`${error.message}`)
-                  
-              })
+            .then(result => {
+                toast.success('success')
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
     }
 
     return (
@@ -60,9 +63,9 @@ const Register = () => {
             {/* login input */}
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-400 dark:text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Register</h1>
-                <form onSubmit={CreateUser}  action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={CreateUser} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label for="username" className="block dark:text-gray-400">Username</label>
+                        <label for="name" className="block dark:text-gray-400">Username</label>
                         <input type="text" name="username" id="username" required placeholder="Username" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     </div>
 
@@ -94,14 +97,14 @@ const Register = () => {
                 <div className="flex justify-center space-x-4">
 
                     <button onClick={googleLogInHandle} aria-label="Log in with Google" className="p-3 rounded-sm">
-                      <FaGoogle></FaGoogle>
+                        <FaGoogle></FaGoogle>
                     </button>
 
-                    
-                   
+
+
 
                     <button onClick={gitLoginHandle} aria-label="Log in with GitHub" className="p-3 rounded-sm">
-                       <FaGithub></FaGithub>
+                        <FaGithub></FaGithub>
                     </button>
                 </div>
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account

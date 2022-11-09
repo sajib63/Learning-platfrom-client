@@ -7,50 +7,57 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-    const {loginUser, googleLogin,gitLogin}=useContext(AuthContext);
+    const { loginUser, googleLogin, gitLogin } = useContext(AuthContext);
 
-    const CreateUser=event=>{
+    const CreateUser = event => {
         event.preventDefault();
-        const form=event.target;
-       
-        const email=form.email.value;
-    
-        const password=form.password.value;
+        const form = event.target;
+
+        const email = form.email.value;
+
+        const password = form.password.value;
 
         loginUser(email, password)
-        .then(result=> {
-      toast.success('success')
-        })
-        .catch(error=>{
-            toast.error(`${error.message}`)
-            
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('success')
+                form.reset();
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
 
     }
 
 
-    const googleLogInHandle=()=>{
+    const googleLogInHandle = () => {
         googleLogin()
-        .then(result=> {
-            toast.success('success')
-              })
-              .catch(error=>{
-                  toast.error(`${error.message}`)
-                  
-              })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('success')
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
 
     }
 
-    const gitLoginHandle=()=>{
+    const gitLoginHandle = () => {
         gitLogin()
 
-        .then(result=> {
-            toast.success('success')
-              })
-              .catch(error=>{
-                  toast.error(`${error.message}`)
-                  
-              })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('success')
+            })
+            .catch(error => {
+                toast.error(`${error.message}`)
+
+            })
     }
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:mt-10 mt-0'>
@@ -79,9 +86,9 @@ const Login = () => {
                 </div>
                 <div className="flex justify-center space-x-4">
                     <button onClick={googleLogInHandle} aria-label="Log in with Google" className="p-3 rounded-sm">
-                       <FaGoogle></FaGoogle>
+                        <FaGoogle></FaGoogle>
                     </button>
-                   
+
                     <button onClick={gitLoginHandle} aria-label="Log in with GitHub" className="p-3 rounded-sm">
                         <FaGithub></FaGithub>
                     </button>
