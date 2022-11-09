@@ -1,15 +1,28 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../UserContext/UserContext';
 
 const Navbar = () => {
-    // const {user}=useContext(AuthContext);
+    const {user, logOutUser}=useContext(AuthContext);
+
+    const logOutHandle=()=>{
+      logOutUser()
+      .then(result=> {
+        toast.success('success')
+          })
+          .catch(error=>{
+              toast.error(`${error.message}`)
+              
+          })
+    }
     const blogAndHome=<>
     <li><Link to='/' >Home</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
     <li><Link to='/login' className='ml-0 lg:ml-40 mt-5 lg:mt-0'>Login</Link></li>
     <li><Link to='/register'>Register</Link></li>
-    {/* <li><Link >{user?.name}</Link></li> */}
-    <li><Link >LogOut</Link></li>
+    <li><Link >{user?.displayName}</Link></li>
+    <li onClick={logOutHandle}><Link >LogOut</Link></li>
     
     </>
     return (
@@ -23,7 +36,7 @@ const Navbar = () => {
              {blogAndHome}
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">Wild- <span className='text-white'>Photography</span></Link>
+          <Link to='/' className="btn btn-ghost normal-case text-xl">Wild- <span className='text-white'>Photography</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0 font-bold">

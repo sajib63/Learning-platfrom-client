@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../UserContext/UserContext';
 
 const Register = () => {
-    const {createUser}=useContext(AuthContext)
+    const {createUser, googleLogin,gitLogin}=useContext(AuthContext)
     const CreateUser=event=>{
         event.preventDefault();
         const form=event.target;
@@ -24,6 +24,19 @@ const Register = () => {
             toast.error(`${error.message}`)
             
         })
+
+    }
+
+
+    const googleLogInHandle=()=>{
+        googleLogin()
+        .then(result=> {
+            toast.success('success')
+              })
+              .catch(error=>{
+                  toast.error(`${error.message}`)
+                  
+              })
 
     }
 
@@ -68,7 +81,7 @@ const Register = () => {
                 </div>
                 <div className="flex justify-center space-x-4">
 
-                    <button aria-label="Log in with Google" className="p-3 rounded-sm">
+                    <button onClick={googleLogInHandle} aria-label="Log in with Google" className="p-3 rounded-sm">
                       <FaGoogle></FaGoogle>
                     </button>
 
