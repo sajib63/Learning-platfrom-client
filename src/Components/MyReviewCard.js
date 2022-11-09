@@ -13,7 +13,7 @@ const MyReviewCard = ({ review, deleteHandle }) => {
                 <div className="card-actions justify-end">
                     <button onClick={()=> deleteHandle(review)} className="btn bg-red-600 border-0 rounded-xl">Delete</button>
 
-                    <Link to={`/editReview/${review._id}`} className="btn bg-yellow-500 border-0 rounded-xl text-black">Edit</Link>
+                    <Link to={`/editReview/${review._id}`} className="btn bg-green-700 border-0 rounded-xl text-black hover:text-white">Edit</Link>
                 </div>
             </div>
         </div>
