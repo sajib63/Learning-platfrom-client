@@ -14,7 +14,7 @@ const Register = () => {
 
         const email = form.email.value;
         const photoURL = form.photoURL.value;
-        const displayName = form.name.value;
+        const displayName = form.displayName.value;
         const password = form.password.value;
 
         createUser(email, password)
@@ -66,11 +66,11 @@ const Register = () => {
                 <form onSubmit={CreateUser} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
                         <label for="name" className="block dark:text-gray-400">Username</label>
-                        <input type="text" name="username" id="username" required placeholder="Username" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                        <input type="text" name="displayName" id="username" required placeholder="Username" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     </div>
 
                     <div className="space-y-1 text-sm">
-                        <label for="username" className="block dark:text-gray-400">Username</label>
+                        <label for="username" className="block dark:text-gray-400">photoURL</label>
                         <input type="text" name="photoURL" required placeholder="photoURL" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     </div>
 
