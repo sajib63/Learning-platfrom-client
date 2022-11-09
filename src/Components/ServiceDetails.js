@@ -45,12 +45,12 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Successfully toasted!");
+        toast.success("Review Send Successfully ");
 
         form.reset();
       })
       .catch((err) => {
-        toast.error(err.massege);
+        toast.error(err.message);
       });
     // ...........
   }

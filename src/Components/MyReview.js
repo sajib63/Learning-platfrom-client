@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../UserContext/UserContext';
 import MyReviewCard from './MyReviewCard';
 
@@ -16,16 +17,22 @@ const MyReview = () => {
 
 
 
-const deleteHandle=data=>{
-    const agree=window.confirm(`are you sure to delete ${data.name}`)
+const deleteHandle=datas=>{
+    const agree=window.confirm(`are you sure to delete ${datas.name}`)
 
     if(agree){
-        fetch(`http://localhost:5000/delete/${data._id}`,{
+        fetch(`http://localhost:5000/delete/${datas._id}`,{
             method:'DELETE'
         })
         .then(res=> res.json())
         .then(data=>{
-            console.log(data);
+            if(data.acknowledged){
+
+                const remaining=users.filter(usr=> usr._id !==datas._id )
+
+                toast.success('Delete Successfully')
+                setUsers(remaining)
+            }
         })
         .catch(error=> {
             console.log(error);
