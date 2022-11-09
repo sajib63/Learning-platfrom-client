@@ -5,6 +5,7 @@ import Home from "./Home/Home";
 import Login from "./Login";
 import MyReview from "./MyReview";
 import Register from "./Register";
+import ReviewEdit from "./ReviewEdit";
 import ServiceDetails from "./ServiceDetails";
 import TotalServices from "./TotalServices/TotalServices";
 
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([
             {
                 path:'/myReview',
                 element:<MyReview></MyReview>
+            },
+            {
+                path:'/editReview/:id',
+                element:<ReviewEdit></ReviewEdit>,
+                loader:({params})=>fetch(`http://localhost:5000/review/${params.id}`)
             }
 
         ]
