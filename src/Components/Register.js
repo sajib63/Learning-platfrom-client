@@ -40,6 +40,18 @@ const Register = () => {
 
     }
 
+    const gitLoginHandle=()=>{
+        gitLogin()
+
+        .then(result=> {
+            toast.success('success')
+              })
+              .catch(error=>{
+                  toast.error(`${error.message}`)
+                  
+              })
+    }
+
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:mt-10 mt-0'>
             <div>
@@ -88,7 +100,7 @@ const Register = () => {
                     
                    
 
-                    <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+                    <button onClick={gitLoginHandle} aria-label="Log in with GitHub" className="p-3 rounded-sm">
                        <FaGithub></FaGithub>
                     </button>
                 </div>

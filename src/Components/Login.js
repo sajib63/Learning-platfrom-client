@@ -27,6 +27,31 @@ const Login = () => {
         })
 
     }
+
+
+    const googleLogInHandle=()=>{
+        googleLogin()
+        .then(result=> {
+            toast.success('success')
+              })
+              .catch(error=>{
+                  toast.error(`${error.message}`)
+                  
+              })
+
+    }
+
+    const gitLoginHandle=()=>{
+        gitLogin()
+
+        .then(result=> {
+            toast.success('success')
+              })
+              .catch(error=>{
+                  toast.error(`${error.message}`)
+                  
+              })
+    }
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:mt-10 mt-0'>
             <div>
@@ -53,11 +78,11 @@ const Login = () => {
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                 </div>
                 <div className="flex justify-center space-x-4">
-                    <button aria-label="Log in with Google" className="p-3 rounded-sm">
+                    <button onClick={googleLogInHandle} aria-label="Log in with Google" className="p-3 rounded-sm">
                        <FaGoogle></FaGoogle>
                     </button>
                    
-                    <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+                    <button onClick={gitLoginHandle} aria-label="Log in with GitHub" className="p-3 rounded-sm">
                         <FaGithub></FaGithub>
                     </button>
                 </div>
