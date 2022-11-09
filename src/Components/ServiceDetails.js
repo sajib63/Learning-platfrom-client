@@ -6,6 +6,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AuthContext } from '../UserContext/UserContext';
 import toast from 'react-hot-toast';
+import ShowReview from './ShowReview';
 
 const ServiceDetails = () => {
     const allService = useLoaderData();
@@ -59,7 +60,7 @@ const ServiceDetails = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch(`http://localhost:5000/review?serviceID=${_id}`)
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);
@@ -81,7 +82,7 @@ const ServiceDetails = () => {
                     </PhotoProvider>
 
                     <div className="card-body">
-                        <h2 className="card-title text-green-700 font-semibold">{name}</h2>
+                        <h2 className="card-title text-green-700 font-semibold ">{name}</h2>
 
                         <div className='flex justify-between'>
                             <p className='text-xl font-semibold '>Price: ${price}</p>
@@ -136,17 +137,13 @@ const ServiceDetails = () => {
             required
           />
           <div className="flex justify-center mt-3">
-            <button className="btn btn-primary w-4/5">Add Review</button>
+            <button className="btn border-0 w-full bg-green-600">Add Review</button>
           </div>
         </form>
 
         <div className="view my-8">
           <div className="">
-            {review.map((rv) => (
-              <div key={rv._id}>
-                <h1>{rv.name}</h1>
-              </div>
-            ))}
+            {review.map((rv) => <ShowReview  key={rv._id} rv={rv}></ShowReview>)}
           </div>
         </div>
       </div>
