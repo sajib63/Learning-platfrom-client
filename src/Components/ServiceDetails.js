@@ -23,14 +23,16 @@ const ServiceDetails = () => {
       return;
     }
     const form = event.target;
-    const name = form.name.value;
+    const userName = form.name.value;
     const email = form.email.value;
     const message = form.massage.value;
 
     const review = {
       serviceID: _id,
+      serviceName:name,
       photo: user.photoURL,
-      name,
+      name: userName,
+      image,
       email,
        message,
     };

@@ -24,6 +24,7 @@ const ReviewEdit = () => {
       .then((data) => {
         
         toast.success("Review Edit Successfully ");
+        event.target.reset();
 
        
       })
