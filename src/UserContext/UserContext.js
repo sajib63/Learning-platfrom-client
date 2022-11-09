@@ -15,17 +15,20 @@ const UserContext = ({children}) => {
 
     // create user 
     const createUser=(email, password)=>{
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // loginUser
     const loginUser=(email, password)=>{
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
 
     // loginWithGoogle
     const googleLogin=()=>{
+        setLoader(true)
         return signInWithPopup(auth, googleProvider);
     }
 
@@ -33,6 +36,7 @@ const UserContext = ({children}) => {
     //   update Profile
   const update = (displayName, photoURL) => {
     updateProfile(auth.currentUser, {
+        
       displayName: displayName,
       photoURL: photoURL,
     });
@@ -42,12 +46,14 @@ const UserContext = ({children}) => {
 
     // gitLogin
     const gitLogin=()=>{
+        setLoader(true)
         return signInWithPopup(auth, gitProvider);
     }
 
     // logoutUser
 
     const logOutUser=()=>{
+        setLoader(true)
         return signOut(auth)
     }
 

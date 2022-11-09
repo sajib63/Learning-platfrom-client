@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImg from '../Components/imges/animation-2.gif'
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
@@ -7,6 +7,10 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../UserContext/UserContext';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const { createUser, googleLogin, gitLogin, update } = useContext(AuthContext)
     const CreateUser = event => {
         event.preventDefault();
@@ -19,6 +23,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+                navigate(from, { replace: true });
                 update(displayName, photoURL)
                 toast.success('success')
                 form.reset();
@@ -34,6 +39,7 @@ const Register = () => {
     const googleLogInHandle = () => {
         googleLogin()
             .then(result => {
+                navigate(from, { replace: true });
                 toast.success('success')
             })
             .catch(error => {
@@ -47,6 +53,7 @@ const Register = () => {
         gitLogin()
 
             .then(result => {
+                navigate(from, { replace: true });
                 toast.success('success')
             })
             .catch(error => {

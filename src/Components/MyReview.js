@@ -42,7 +42,13 @@ const deleteHandle=datas=>{
 
     return (
         <div>
+            {
+               users.length===0 && <p className='text-center mt-28 md:mt-96 text-4xl text-green-600'>No reviews were added</p> 
+            }
+          
           {
+
+            
             users?.map(review=> <MyReviewCard key={review._id} review={review}
                 deleteHandle={deleteHandle}
             ></MyReviewCard>)

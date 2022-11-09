@@ -25,7 +25,7 @@ const Navbar = () => {
     {
       user?.uid ? <>
 
-        <li><Link to='/myReview'>My Review</Link></li>
+      <li><Link to='/myReview'>My Review</Link></li>
         <li><Link to='/addService'>Add Services</Link></li>
         <li><Link className='ml-0 lg:ml-40 mt-5 lg:mt-0'>{user?.displayName}</Link></li>
 
