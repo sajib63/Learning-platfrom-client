@@ -15,10 +15,30 @@ const MyReview = () => {
     },[user?.email])
 
 
+
+const deleteHandle=data=>{
+    const agree=window.confirm(`are you sure to delete ${data.name}`)
+
+    if(agree){
+        fetch(`http://localhost:5000/delete/${data._id}`,{
+            method:'DELETE'
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            console.log(data);
+        })
+        .catch(error=> {
+            console.log(error);
+        })
+    }
+}
+
     return (
         <div>
           {
-            users?.map(review=> <MyReviewCard key={review._id} review={review}></MyReviewCard>)
+            users?.map(review=> <MyReviewCard key={review._id} review={review}
+                deleteHandle={deleteHandle}
+            ></MyReviewCard>)
           }
         </div>
     );
