@@ -2,9 +2,9 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div>
-        <div className="">
-          <div className="collapse  collapse-arrow border border">
+        <div className='my-20 bg-slate-300 mx-4 md:mx-0 lg:mx-0'>
+        <div className=" ">
+          <div className="collapse  collapse-arrow border mt-5">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
               Difference between SQL and NoSQL
@@ -18,6 +18,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
+
           <div className="collapse  collapse-arrow border border">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
@@ -32,6 +33,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
+
           <div className="collapse  collapse-arrow border border">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
@@ -47,6 +49,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
+
           <div className="collapse  collapse-arrow border border">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
@@ -61,6 +64,7 @@ const Blog = () => {
               </p>
             </div>
           </div>
+
         </div>
       </div>
   
