@@ -12,6 +12,7 @@ const MyReviewCard = ({ review, deleteHandle }) => {
                     <img className='h-15 w-10 rounded-full' alt='' src={review?.image} />
                 </div>
                 <p>{review?.message}</p>
+                <p>{review?.timeDate}</p>
                 <div className="card-actions justify-end">
                     <button onClick={()=> deleteHandle(review)} className="btn bg-red-600 border-0 rounded-xl">Delete</button>
 

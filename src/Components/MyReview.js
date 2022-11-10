@@ -4,6 +4,8 @@ import UseTitle from '../Hooks/UseTitle';
 import { AuthContext } from '../UserContext/UserContext';
 import MyReviewCard from './MyReviewCard';
 
+
+
 const MyReview = () => {
 UseTitle('MyReview')
     const {user}=useContext(AuthContext)
@@ -17,7 +19,10 @@ UseTitle('MyReview')
             }
         })
         .then(res=>res.json())
-        .then(data=> setUsers(data))
+        .then(data=> {
+            const remaining=[...data].reverse();
+        setUsers(remaining)
+        })
     },[user?.email])
 
 

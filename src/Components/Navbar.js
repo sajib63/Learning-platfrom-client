@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 
+
+import img from './favicon.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
 
@@ -51,12 +53,12 @@ const Navbar = () => {
     }
 
 
-{/* bg-green-500 */}
+
 
 
   </>
   return (
-    <div className="navbar bg-gray-300 sticky z-50 top-0">
+    <div className="navbar bg-green-500 sticky z-50 top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -66,7 +68,9 @@ const Navbar = () => {
             {blogAndHome}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">Wild- <span className='text-white'>Photography</span></Link>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">
+          <img src={img} className='h-9 w-9' alt="" />
+          Wild- <span className='text-white'>Photography</span></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0 font-bold">

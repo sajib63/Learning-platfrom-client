@@ -8,6 +8,10 @@ import { AuthContext } from '../UserContext/UserContext';
 import toast from 'react-hot-toast';
 import ShowReview from './ShowReview';
 
+const time = new Date().toLocaleTimeString();
+const date = new Date().toDateString();
+const timeDate = `${time}-${date}`;
+
 const ServiceDetails = () => {
     const allService = useLoaderData();
     const navigate=useNavigate();
@@ -35,6 +39,7 @@ const ServiceDetails = () => {
       image,
       email,
        message,
+       timeDate
     };
     //  post data
     fetch("https://y-two-woad.vercel.app/review", {
@@ -64,7 +69,10 @@ const ServiceDetails = () => {
   useEffect(() => {
     fetch(`https://y-two-woad.vercel.app/review?serviceID=${_id}`)
       .then((res) => res.json())
-      .then((data) => setReview(data));
+      .then((data) => {
+        const remaining=[...data].reverse();
+        setReview(remaining)
+      });
   }, [_id]);
 
   //
