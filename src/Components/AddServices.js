@@ -28,6 +28,8 @@ UseTitle('AddServices')
             if (data.acknowledged) {
               toast.success("Add success");
             }
+
+            form.reset();
             // console.log(data);
           })
           .catch((err) => console.log(err));

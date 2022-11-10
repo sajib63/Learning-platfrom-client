@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { FaUserNurse } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../UserContext/UserContext';
 
@@ -51,12 +51,12 @@ const Navbar = () => {
     }
 
 
-
+{/* bg-green-500 */}
 
 
   </>
   return (
-    <div className="navbar bg-green-500 sticky z-50 top-0">
+    <div className="navbar bg-gray-300 sticky z-50 top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

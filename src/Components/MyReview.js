@@ -48,7 +48,7 @@ const deleteHandle=datas=>{
     return (
         <div>
             {
-               users?.length===0 && <p className='text-center mt-28 md:mt-96 text-4xl text-green-600'>No reviews were added</p> 
+               users?.length===0 && <p className='text-center mt-28 md:mt-96 text-4xl text-green-600 lg:mt-96'>No reviews were added</p> 
             }
           
           {

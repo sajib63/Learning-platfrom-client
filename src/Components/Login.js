@@ -46,7 +46,7 @@ const Login = () => {
 
                
 
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://y-two-woad.vercel.app/jwt',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
@@ -83,7 +83,7 @@ const Login = () => {
 
                
 
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://y-two-woad.vercel.app/jwt',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
@@ -120,7 +120,7 @@ const Login = () => {
 
                
 
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://y-two-woad.vercel.app/jwt',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'

@@ -1,5 +1,6 @@
 import React from 'react';
 import UseTitle from '../../Hooks/UseTitle';
+import FavouriteClient from '../FavouriteClient';
 import Carousel from './Carousel';
 import MyPhotos from './MyPhotos';
 import Services from './Services';
@@ -22,6 +23,11 @@ const Home = () => {
 
             <div>
                 <MyPhotos></MyPhotos>
+            </div>
+
+
+            <div>
+                <FavouriteClient></FavouriteClient>
             </div>
         </div>
     );

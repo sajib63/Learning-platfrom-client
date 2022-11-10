@@ -4,7 +4,7 @@ import UseTitle from '../Hooks/UseTitle';
 const Blog = () => {
   UseTitle('Blog')
     return (
-        <div className='my-20 bg-slate-300 mx-4 md:mx-0 lg:mx-0'>
+        <div className='my-20 bg-slate-300 mx-4 md:mx-0 lg:mx-0 lg:mb-96'>
         <div className=" ">
           <div className="collapse  collapse-arrow border mt-5">
             <input type="checkbox" />
