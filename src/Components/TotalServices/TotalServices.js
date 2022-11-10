@@ -1,9 +1,14 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
 import TotalServiceCard from './TotalServiceCard';
 
 const TotalServices = () => {
-    const allPhotos=useLoaderData()
+    const [allPhotos, setAllPhotos]=useState([]);
+    useEffect(()=>{
+        fetch('https://y-two-woad.vercel.app/totalServices')
+        .then(res => res.json())
+            .then(data => setAllPhotos(data))
+    },[])
     return (
         <div>
             

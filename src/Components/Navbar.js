@@ -27,11 +27,18 @@ const Navbar = () => {
 
       <li><Link to='/myReview'>My Review</Link></li>
         <li><Link to='/addService'>Add Services</Link></li>
-        <li><Link className='ml-0 lg:ml-40 mt-5 lg:mt-0'>{user?.displayName}</Link></li>
+       
 
   
 
-          <img alt="" className='h-10 w-10 rounded-full' src={user?.photoURL} />
+          <img
+           alt="" 
+           className='h-10 w-10 rounded-full ml-0 lg:ml-40 mt-5 lg:mt-0 '
+            src={user?.photoURL}
+            
+            title={user?.displayName}
+            
+            />
           
         <li onClick={logOutHandle}><Link >LogOut</Link></li>
       </>

@@ -13,7 +13,7 @@ const ReviewEdit = () => {
      const handleSave=event=>{
         event.preventDefault();
 
-        fetch(`http://localhost:5000/review/${getData._id}`,{
+        fetch(`https://y-two-woad.vercel.app/review/${getData._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

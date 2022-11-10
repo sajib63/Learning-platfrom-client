@@ -1,16 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import UseTitle from '../Hooks/UseTitle';
 import { AuthContext } from '../UserContext/UserContext';
 import MyReviewCard from './MyReviewCard';
 
 const MyReview = () => {
-
+UseTitle('MyReview')
     const {user}=useContext(AuthContext)
 
     const [users, setUsers]=useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`)
+        fetch(`https://y-two-woad.vercel.app/myReview?email=${user?.email}`,{
+            headers:{
+                authorization:`Barer ${localStorage.getItem("token")}`
+            }
+        })
         .then(res=>res.json())
         .then(data=> setUsers(data))
     },[user?.email])
@@ -21,7 +26,7 @@ const deleteHandle=datas=>{
     const agree=window.confirm(`are you sure to delete ${datas.name}`)
 
     if(agree){
-        fetch(`http://localhost:5000/delete/${datas._id}`,{
+        fetch(`https://y-two-woad.vercel.app/delete/${datas._id}`,{
             method:'DELETE'
         })
         .then(res=> res.json())
@@ -43,7 +48,7 @@ const deleteHandle=datas=>{
     return (
         <div>
             {
-               users.length===0 && <p className='text-center mt-28 md:mt-96 text-4xl text-green-600'>No reviews were added</p> 
+               users?.length===0 && <p className='text-center mt-28 md:mt-96 text-4xl text-green-600'>No reviews were added</p> 
             }
           
           {

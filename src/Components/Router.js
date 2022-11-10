@@ -16,50 +16,50 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/totalServices',
-                loader:()=> fetch('http://localhost:5000/totalServices'),
-                element:<TotalServices></TotalServices>
-            },
-
-            {
-                path:'/service/:id',
-                loader:({params})=> fetch(`http://localhost:5000/totalServices/${params.id}`),
-                element:<ServiceDetails></ServiceDetails>
+                path: '/totalServices',
+           
+                element: <TotalServices></TotalServices>
             },
 
             {
-                path:'/login',
-                element:<Login></Login>
-            },
-            {
-                path:'/register',
-                element:<Register></Register>
-            },
-            {
-                path:'/blog',
-                element:<Blog></Blog>
+                path: '/service/:id',
+                loader: ({ params }) => fetch(`https://y-two-woad.vercel.app/totalServices/${params.id}`),
+                element: <ServiceDetails></ServiceDetails>
             },
 
             {
-                path:'/myReview',
-                element:<PrivateRoute><MyReview></MyReview></PrivateRoute>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/editReview/:id',
-                element:<ReviewEdit></ReviewEdit>,
-                loader:({params})=>fetch(`http://localhost:5000/review/${params.id}`)
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
 
             {
-                path:'/addService',
-                element:<AddServices></AddServices>
+                path: '/myReview',
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
+            },
+            {
+                path: '/editReview/:id',
+                element: <ReviewEdit></ReviewEdit>,
+                loader: ({ params }) => fetch(`https://y-two-woad.vercel.app/review/${params.id}`)
+            },
+
+            {
+                path: '/addService',
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
             }
 
         ]

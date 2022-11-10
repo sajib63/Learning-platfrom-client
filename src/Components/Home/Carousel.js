@@ -1,12 +1,14 @@
 import React from 'react';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
 
+
 import image1 from '../../images/image-1.jpg'
 import image2 from '../../images/image-2.jpg'
 import image3 from '../../images/image-3.jpg'
 import image4 from '../../images/image-4.jpg'
 
 const Carousel = () => {
+ 
     return (
         <div className="carousel w-full h-3/6">
         <div id="slide1" className="carousel-item relative w-full">

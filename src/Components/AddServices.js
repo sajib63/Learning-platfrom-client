@@ -2,9 +2,10 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 import img from '../Components/imges/animation-3.gif'
+import UseTitle from '../Hooks/UseTitle';
 
 const AddServices = () => {
-
+UseTitle('AddServices')
     const submitHandle = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -15,7 +16,7 @@ const AddServices = () => {
         const description = form.description.value;
         const product = {  name, price, rating,  image, description };
       
-        fetch("http://localhost:5000/service", {
+        fetch("https://y-two-woad.vercel.app/service", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
