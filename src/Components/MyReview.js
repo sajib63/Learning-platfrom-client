@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigation } from 'react-router-dom';
+import { Loader } from '../Hooks/Loader';
+
 import UseTitle from '../Hooks/UseTitle';
 import { AuthContext } from '../UserContext/UserContext';
 import MyReviewCard from './MyReviewCard';
@@ -11,6 +14,9 @@ UseTitle('MyReview')
     const {user}=useContext(AuthContext)
 
     const [users, setUsers]=useState([]);
+    const navigation=useNavigation();
+
+    
 
     useEffect(()=>{
         fetch(`https://y-two-woad.vercel.app/myReview?email=${user?.email}`,{
@@ -25,7 +31,9 @@ UseTitle('MyReview')
         })
     },[user?.email])
 
-
+    if(navigation.state === 'loading'){
+        return <Loader></Loader>
+    }
 
 const deleteHandle=datas=>{
     const agree=window.confirm(`are you sure to delete ${datas.name}`)
